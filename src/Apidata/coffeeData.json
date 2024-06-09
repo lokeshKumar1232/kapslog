@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "type": "Flat White",
+        "name": "Espresso",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvvGAoPHn-eclZfy3MjgiophWzd-O0yphjQ&s",
+        "description": "A full-flavored, concentrated form of coffee served in small, strong shots.",
+        "price" : 12,
+        "rating" :3.7,
+        "TotalRating" :265
+    },
+    {
+        "id": 2,
+        "type":"caffè latte",
+        "name": "Latte",
+        "image": "https://c8.alamy.com/comp/2F9K0M5/smoke-rising-from-plain-cup-of-cappuccino-coffee-over-wooden-top-with-sugar-packet-url=httpwwwistockphotocomfile-searchphpaction=fileligh-2F9K0M5.jpg",
+        "description": "A creamy blend of espresso and steamed milk, topped with a small amount of foam.",
+        "price" : 2,
+        "rating" :4.7,
+        "TotalRating" :280
+    },
+    {
+        "id": 3,
+        "type":"caffe moc",
+        "name": "Cappuc",
+        "image": "https://img.freepik.com/free-photo/fresh-coffee-steams-wooden-table-close-up-generative-ai_188544-8923.jpg",
+        "description": "A classic Italian coffee drink prepared with espresso, hot milk, and steamed-milk foam.",
+        "price" : 18,
+        "rating" :3.8,
+        "TotalRating" :270
+    },
+    {
+        "id": 4,
+        "type":"lungo",
+        "name": "Americano",
+        "image": "https://t4.ftcdn.net/jpg/01/16/61/93/360_F_116619399_YA611bKNOW35ffK0OiyuaOcjAgXgKBui.jpg",
+        "description": "Espresso diluted with hot water, giving it a similar strength but different flavor from regular drip coffee.",
+        "price" : 16,
+        "rating" :3.7,
+        "TotalRating" :260
+    },
+    {
+        "id": 5,
+        "type":"cold brew",
+        "name": "Mocha",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS6Va6BAV25nl9wY9EEmBpClhTBaPvWzViZA&s",
+        "description": "A chocolate-flavored variant of a latte, made with espresso, steamed milk, and chocolate syrup.",
+        "price" : 19,
+        "rating" :4.8,
+        "TotalRating" :340
+    }
+]
