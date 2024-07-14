@@ -2,18 +2,18 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../Screen/Homescreen';
-import Detailscreen from '../Screen/Detailscreen';
-import Cardscreen from '../Screen/Cardscreen';
+
+
+import Register from '../Screen/Register';
+import Login from '../Screen/Login'
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = ()=> {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}} >
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="Detailscreen" component={Detailscreen} />
-      <Stack.Screen name="Cardscreen" component={Cardscreen} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />    
       </Stack.Navigator>
     </NavigationContainer>
   );
