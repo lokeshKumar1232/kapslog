@@ -1,13 +1,21 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const validate = () => {
     const newErrors = {};
@@ -35,7 +43,7 @@ const Login = () => {
       // Simulate a network request
       setTimeout(() => {
         setIsLoading(false);
-        navigation.navigate('Register')
+        navigation.navigate('Register');
       }, 2000); // 2 seconds delay
     }
   };
@@ -45,6 +53,9 @@ const Login = () => {
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Login</Text>
       </View>
+
+      <Text style={styles.labelStyle}>Email/Username</Text>
+
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -52,6 +63,7 @@ const Login = () => {
         value={email}
       />
       {errors.email && <Text style={styles.error}>{errors.email}</Text>}
+      <Text style={styles.labelStyle}>Password</Text>
       <TextInput
         style={styles.input}
         placeholder="Password"
@@ -61,10 +73,12 @@ const Login = () => {
       />
       {errors.password && <Text style={styles.error}>{errors.password}</Text>}
       <TouchableOpacity style={styles.forgotPasswordContainer}>
-       
-        <Text style={styles.forgotText}>Forgot Password</Text>
+        <Text style={styles.forgotText}>Forgot?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginButton} onPress={handleSubmit} disabled={isLoading}>
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={handleSubmit}
+        disabled={isLoading}>
         {isLoading ? (
           <ActivityIndicator size="small" color="#ffffff" />
         ) : (
@@ -103,9 +117,10 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   forgotPasswordContainer: {
-
-    alignItems: 'flex-end'
-
+    borderBottomWidth: 1,
+    width: 60,
+    alignItems: 'center',
+    alignSelf: 'flex-end',
   },
   loginButton: {
     backgroundColor: 'blue',
@@ -120,11 +135,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
   },
-  forgotText:{
-    fontSize:16,
-            color:'#000000',
-            fontWeight:'600'
-  }
+  forgotText: {
+    fontSize: 16,
+    color: '#000000',
+    fontWeight: '600',
+  },
+  labelStyle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#000000',
+    marginBottom: 8,
+  },
 });
 
 export default Login;

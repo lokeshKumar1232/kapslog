@@ -1,7 +1,15 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
-import { Image } from 'react-native-animatable';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  ActivityIndicator,
+  ScrollView,
+} from 'react-native';
+import {Image} from 'react-native-animatable';
 
 const Register = () => {
   const [fullName, setFullName] = useState('');
@@ -10,7 +18,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const validate = () => {
     const newErrors = {};
 
@@ -47,68 +55,78 @@ const Register = () => {
       // Simulate a network request
       setTimeout(() => {
         setIsLoading(false);
-        console.log({ fullName, email, password, confirmPassword });
+        console.log({fullName, email, password, confirmPassword});
       }, 2000); // 2 seconds delay
     }
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-      onPress={()=>{
-        navigation.goBack()
-      }}
-      >
-      <Image
-      source={require('../Assets/backarrow.png')}
-      style={{
-        width:24,
-        height:24,
-        resizeMode:'contain'
-      }}
-      />
-      </TouchableOpacity>
-     
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Register</Text>
-      </View>
-      <TextInput
-        style={styles.input}
-        placeholder="Full Name"
-        onChangeText={setFullName}
-        value={fullName}
-      />
-      {errors.fullName && <Text style={styles.error}>{errors.fullName}</Text>}
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-      />
-      {errors.email && <Text style={styles.error}>{errors.email}</Text>}
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        onChangeText={setPassword}
-        value={password}
-      />
-      {errors.password && <Text style={styles.error}>{errors.password}</Text>}
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm Password"
-        secureTextEntry
-        onChangeText={setConfirmPassword}
-        value={confirmPassword}
-      />
-      {errors.confirmPassword && <Text style={styles.error}>{errors.confirmPassword}</Text>}
-      <TouchableOpacity style={styles.registerButton} onPress={handleSubmit} disabled={isLoading}>
-        {isLoading ? (
-          <ActivityIndicator size="small" color="#ffffff" />
-        ) : (
-          <Text style={styles.registerButtonText}>Register</Text>
+      <ScrollView>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Image
+            source={require('../Assets/backarrow.png')}
+            style={{
+              width: 24,
+              height: 24,
+              resizeMode: 'contain',
+            }}
+          />
+        </TouchableOpacity>
+
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerText}>Register</Text>
+        </View>
+        <Text style={styles.labelStyle}>Full Name</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Full Name"
+          onChangeText={setFullName}
+          value={fullName}
+        />
+        {errors.fullName && <Text style={styles.error}>{errors.fullName}</Text>}
+        <Text style={styles.labelStyle}>Email</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          onChangeText={setEmail}
+          value={email}
+        />
+        {errors.email && <Text style={styles.error}>{errors.email}</Text>}
+        <Text style={styles.labelStyle}>Password</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          onChangeText={setPassword}
+          value={password}
+        />
+        {errors.password && <Text style={styles.error}>{errors.password}</Text>}
+        <Text style={styles.labelStyle}>Comfirm Password</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm Password"
+          secureTextEntry
+          onChangeText={setConfirmPassword}
+          value={confirmPassword}
+        />
+        {errors.confirmPassword && (
+          <Text style={styles.error}>{errors.confirmPassword}</Text>
         )}
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.registerButton}
+          onPress={handleSubmit}
+          disabled={isLoading}>
+          {isLoading ? (
+            <ActivityIndicator size="small" color="#ffffff" />
+          ) : (
+            <Text style={styles.registerButtonText}>Register</Text>
+          )}
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
@@ -118,7 +136,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     paddingHorizontal: 20,
-    paddingTop:32
+    paddingTop: 32,
   },
   headerContainer: {
     alignItems: 'center',
@@ -147,12 +165,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 24,
+    marginVertical: 24,
   },
   registerButtonText: {
     color: '#ffffff',
     fontSize: 20,
     fontWeight: '600',
+  },
+  labelStyle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#000000',
+    marginBottom: 8,
   },
 });
 
